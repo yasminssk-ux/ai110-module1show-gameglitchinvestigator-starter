@@ -25,13 +25,32 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+- The game's purpose is to guess a secret number within a set range and 
+  number of attempts, earning points based on how quickly you guess 
+  correctly. The difficulty setting changes the range and number of 
+  attempts allowed. The game was built with bugs to practice 
+  identifying and fixing broken logic with Copilot inline chat.
+- The bugs I found:
+1. The hint messages were swapped — guessing too high showed "Go HIGHER" 
+     and guessing too low showed "Go LOWER"
+2. The new game button did not reset the game properly, the attempts 
+     counter never decreased correctly, and a browser refresh was required 
+     to play again
+3. The final score was always 70 because the attempt_number calculation 
+     in update_score was off by one
+- Fixes applied:
+1. swapped greater than and less than conditions
+2. fixed new game reset block to properly clear attempts, score, 
+     status, and history, and corrected the starting value from 0 to 1
+3. corrected the attempt_number calculation in update_score and removed 
+   the even/odd type hack that was making wins impossible on 
+   even attempts.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+-The game built using Streamlit contains intentional bugs that were identified and fixed using GitHub Copilot inline chat. The player guesses a number within a range 
+determined by the difficulty setting, receives hints, and earns points 
+based on how quickly they guess correctly.
 
 ## 🚀 Stretch Features
 
